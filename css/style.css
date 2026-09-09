@@ -1,0 +1,562 @@
+/* =========================
+   RESET & BASIC
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.header {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    font-size: 15px;
+    color: #555;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #000;
+}
+
+
+/* =========================
+   GENERAL SECTION
+========================= */
+
+section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 30px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+}
+
+
+/* =========================
+   HERO / HOME
+========================= */
+
+.hero {
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 80px 30px;
+
+    /* FOTO SEBAGAI BACKGROUND */
+    background-image:
+        linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.92) 0%,
+            rgba(255, 255, 255, 0.78) 30%,
+            rgba(255, 255, 255, 0.35) 55%,
+            rgba(255, 255, 255, 0.05) 80%
+        ),
+        url("../images/bag.jpg");
+
+    background-size: cover;
+
+    /* Perubahan posisi: 75% (geser kanan) dan 10% (geser ke atas) */
+    background-position: 100% 60%;
+
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    width: 50%;
+    max-width: 550px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-greeting {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: 56px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    font-size: 24px;
+    font-weight: normal;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    max-width: 550px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background-color: #222;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #444;
+}
+
+.btn-secondary {
+    border: 1px solid #222;
+    color: #222;
+}
+
+.btn-secondary:hover {
+    background-color: #222;
+    color: white;
+}
+
+
+/* =========================
+   PROFILE IMAGE
+========================= */
+
+/* Tidak digunakan lagi karena
+   foto sudah menjadi background Hero */
+
+.hero-image {
+    display: none;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    background-color: #fafafa;
+    max-width: none;
+
+    padding-left: calc((100% - 1040px) / 2);
+    padding-right: calc((100% - 1040px) / 2);
+}
+
+.about-content {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.about-text p {
+    color: #666;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    padding: 30px 20px;
+
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.skill-card h3 {
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    font-size: 14px;
+    color: #777;
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects {
+    background-color: #fafafa;
+    max-width: none;
+
+    padding-left: calc((100% - 1040px) / 2);
+    padding-right: calc((100% - 1040px) / 2);
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.project-card {
+    background-color: white;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    border: 1px solid #eeeeee;
+
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.project-image {
+    height: 220px;
+    width: 100%;             /* Memastikan container selebar card */
+    background-color: #eeeeee;
+    color: #888;
+    overflow: hidden;        /* Memotong bagian gambar yang berlebih */
+    position: relative;      /* Menjaga posisi elemen di dalamnya */
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* Memotong gambar secara proporsional mengisi 220px */
+    object-position: center;  /* Memfokuskan potongan gambar di tengah */
+    display: block;
+}
+
+.project-content {
+    padding: 25px;
+}
+
+.project-content h3 {
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tech span {
+    padding: 5px 10px;
+
+    background-color: #f1f1f1;
+
+    border-radius: 4px;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+/* .contact {
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-content p {
+    color: #666;
+    margin-bottom: 25px;
+} */
+/* ==================== CONTACT ==================== */
+.contact {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.contact-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-text {
+  color: #555555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* Tombol Utama Kirim Email */
+.contact-content .btn-primary {
+  display: inline-block;
+  background-color: #222222;
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+  transition: background-color 0.2s ease;
+}
+
+.contact-content .btn-primary:hover {
+  background-color: #333333;
+}
+
+/* Container Ikon Sosial Media */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Tombol Bulat Sosial Media */
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #f4f4f4;
+  color: #222222;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.social-btn:hover {
+  background-color: #222222;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 30px;
+
+    text-align: center;
+
+    background-color: #222;
+    color: #aaa;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-menu {
+        gap: 20px;
+    }
+
+    .nav-menu a {
+        font-size: 13px;
+    }
+
+    section {
+        padding: 80px 10%;
+    }
+
+
+    /* HERO MOBILE */
+
+    .hero {
+        min-height: calc(100vh - 70px);
+
+        padding: 70px 10%;
+
+        justify-content: center;
+
+        text-align: center;
+
+        background-position: center 45%;
+
+        background-image:
+            linear-gradient(
+                rgba(255, 255, 255, 0.72),
+                rgba(255, 255, 255, 0.72)
+            ),
+            url("images/profile-bg.jpg");
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+
+    /* SKILLS */
+
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* PROJECTS */
+
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .nav-menu {
+        gap: 10px;
+    }
+
+    .nav-menu a {
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+}
