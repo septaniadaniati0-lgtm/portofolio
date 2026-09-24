@@ -6,22 +6,37 @@
 
     <title>Creative Work - Makeup Artist</title>
 
+    <!-- 1. CSS Utama (Untuk Navbar & Style Dasar) -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- 2. CSS Khusus (Untuk Galeri & Layout Creative Work) -->
     <link rel="stylesheet" href="css/creative-work.css">
+
+    <!-- 3. Font Awesome (Untuk Ikon Hamburger Mobile) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <!-- Navbar -->
-    <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo">My Portfolio</a>
 
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
-                <li><a href="index.html#projects">Projects</a></li>
+    <header class="header">
+        <nav class="navbar">
+            <a href="indeks.html#home" class="logo">My Portfolio</a>
+            
+            <!-- Tombol Hamburger untuk versi Mobile -->
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars icon-open"></i>
+                <i class="fa-solid fa-xmark icon-close"></i>
+            </button>
+
+            <!-- Menu Navigasi -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="indeks.html#home">Home</a></li>
+                <li><a href="indeks.html#about">About</a></li>
+                <li><a href="indeks.html#skills">Skills</a></li>
+                <li><a href="indeks.html#projects">Projects</a></li>
                 <li><a href="creative-work.html" class="active">Creative Work</a></li>
-                <li> <a href="index.html#contact">Contact</a>  </li>
+                <li> <a href="indeks.html#contact">Contact</a>  </li>
             </ul>
         </nav>
     </header>
@@ -182,6 +197,8 @@
     <footer>
         <p>© 2026 Septania Daniati. All Rights Reserved.</p>
     </footer>
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script src="script.js"></script>
 
 </body>
 </html>

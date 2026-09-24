@@ -1,21 +1,17 @@
-/* =========================
-   RESET & BASIC
-========================= */
-
+/* ==========================================================================
+   1. RESET & BASE STYLES
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
     scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #222;
-    background-color: #ffffff;
+    background-color: #fcfcfc;
+    color: #333333;
     line-height: 1.6;
 }
 
@@ -28,139 +24,173 @@ ul {
     list-style: none;
 }
 
-
-/* =========================
-   NAVBAR
-========================= */
-
-.header {
-    width: 100%;
-    background-color: #ffffff;
-    border-bottom: 1px solid #eeeeee;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px 30px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-menu a {
-    font-size: 15px;
-    color: #555;
-    transition: 0.3s;
-}
-
-.nav-menu a:hover {
-    color: #000;
-}
-
-
-/* =========================
-   GENERAL SECTION
-========================= */
-
+/* ==========================================================================
+   2. GENERAL SECTION
+   ========================================================================== */
 section {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 100px 30px;
+    padding: 60px 30px;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
 }
 
 .section-title p {
-    color: #777;
     font-size: 14px;
-    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #007bff;
+    font-weight: 600;
 }
 
 .section-title h2 {
-    font-size: 36px;
+    font-size: 32px;
+    color: #111111;
+    margin-top: 5px;
 }
 
+/* ==========================================================================
+   3. NAVBAR (DESKTOP CARD CONTAINER & MOBILE TOGGLE)
+   ========================================================================== */
+.header {
+    position: fixed;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 15px;
+}
 
-/* =========================
-   HERO / HOME
-========================= */
-
-.hero {
-    min-height: calc(100vh - 80px);
-
+.navbar {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    
+    /* PENTING: Membuat Logo & Hamburger Sejajar Kiri-Kanan */
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
+    position: relative;
+}
 
-    padding: 80px 30px;
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111111;
+}
 
-    /* FOTO SEBAGAI BACKGROUND */
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    color: #555555;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.nav-links a:hover {
+    color: #d67ba8;            /* Mengubah warna teks menjadi pink */
+    background-color: #fdf2f7; /* Background pink sangat muda */
+}
+.nav-links a.active {
+    color: #d67ba8 !important; /* Warna teks pink untuk menu aktif */
+    font-weight: 700;
+}
+
+/* Tombol Hamburger & Ikon X */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #333;
+    cursor: pointer;
+}
+
+.hamburger .icon-close {
+    display: none;
+}
+
+.hamburger.active .icon-open {
+    display: none;
+}
+
+.hamburger.active .icon-close {
+    display: block;
+}
+
+/* ==========================================================================
+   4. HERO / HOME
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 140px 8% 80px 8%;
     background-image:
         linear-gradient(
             to right,
-            rgba(255, 255, 255, 0.92) 0%,
-            rgba(255, 255, 255, 0.78) 30%,
-            rgba(255, 255, 255, 0.35) 55%,
-            rgba(255, 255, 255, 0.05) 80%
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0.85) 35%,
+            rgba(255, 255, 255, 0.2) 65%,
+            rgba(255, 255, 255, 0) 100%
         ),
         url("../images/bag.jpg");
-
     background-size: cover;
-
-    /* Perubahan posisi: 75% (geser kanan) dan 10% (geser ke atas) */
     background-position: 100% 60%;
-
     background-repeat: no-repeat;
 }
 
-.hero-content {
-    width: 50%;
-    max-width: 550px;
-    position: relative;
-    z-index: 2;
+.profile-avatar {
+    display: none;
 }
 
-.hero-greeting {
+.hero-content {
+    max-width: 550px;
+}
+
+.hero .greeting {
     font-size: 18px;
-    color: #777;
-    margin-bottom: 10px;
+    color: #666;
+    margin-bottom: 5px;
 }
 
 .hero h1 {
-    font-size: 56px;
+    font-size: 46px;
     line-height: 1.2;
     margin-bottom: 10px;
+    color: #111;
 }
 
 .hero h2 {
-    font-size: 24px;
-    font-weight: normal;
-    color: #666;
-    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #111111; /* Warna Hitam */
+    margin-bottom: 15px;
 }
 
-.hero-description {
-    max-width: 550px;
-    color: #666;
-    margin-bottom: 30px;
+.hero .bio {
+    color: #444;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Tombol Hero Fix Warna Teks */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
 }
 
 .hero-buttons {
@@ -169,172 +199,173 @@ section {
 }
 
 .btn {
-    display: inline-block;
     padding: 12px 24px;
     border-radius: 6px;
+    font-weight: 600;
     font-size: 14px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
 }
 
+/* Mengubah warna tombol utama dari biru ke hitam */
 .btn-primary {
-    background-color: #222;
-    color: white;
+    background-color: #111111;
+    color: #ffffff !important;
+    border: 1px solid #111111;
 }
 
 .btn-primary:hover {
-    background-color: #444;
+    background-color: #333333;
+    border-color: #333333;
 }
 
+/* Mengubah warna tombol sekunder ke tema hitam */
 .btn-secondary {
-    border: 1px solid #222;
-    color: #222;
+    background-color: transparent;
+    color: #111111 !important;
+    border: 1px solid #111111;
 }
 
 .btn-secondary:hover {
-    background-color: #222;
-    color: white;
+    background-color: #111111;
+    color: #ffffff !important;
 }
 
-
-/* =========================
-   PROFILE IMAGE
-========================= */
-
-/* Tidak digunakan lagi karena
-   foto sudah menjadi background Hero */
-
-.hero-image {
-    display: none;
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-.about {
-    background-color: #fafafa;
-    max-width: none;
-
-    padding-left: calc((100% - 1040px) / 2);
-    padding-right: calc((100% - 1040px) / 2);
-}
-
+/* ==========================================================================
+   5. ABOUT
+   ========================================================================== */
 .about-content {
-    max-width: 750px;
+    max-width: 800px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .about-text p {
-    color: #666;
-    margin-bottom: 20px;
-    text-align: center;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.8;
 }
 
+/* ==========================================================================
+   6. SKILLS
+   ========================================================================== */
+.skills-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
 
-/* =========================
-   SKILLS
-========================= */
+.skill-category h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f0f0f0;
+}
 
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
 
 .skill-card {
-    padding: 30px 20px;
-
-    border: 1px solid #eeeeee;
-    border-radius: 10px;
-
-    text-align: center;
-
-    transition: 0.3s;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    transition: transform 0.3s ease;
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-6px);
 }
 
-.skill-card h3 {
+.icon-box {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 10px;
 }
 
-.skill-card p {
-    font-size: 14px;
-    color: #777;
+.icon-box img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-
-/* =========================
-   PROJECTS
-========================= */
-
-.projects {
-    background-color: #fafafa;
-    max-width: none;
-
-    padding-left: calc((100% - 1040px) / 2);
-    padding-right: calc((100% - 1040px) / 2);
+.skill-card span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    text-align: center;
 }
 
+/* ==========================================================================
+   7. PROJECTS
+   ========================================================================== */
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
 .project-card {
-    background-color: white;
-
-    border-radius: 10px;
+    background-color: #ffffff;
+    border-radius: 12px;
     overflow: hidden;
-
-    border: 1px solid #eeeeee;
-
-    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .project-image {
-    height: 220px;
-    width: 100%;             /* Memastikan container selebar card */
-    background-color: #eeeeee;
-    color: #888;
-    overflow: hidden;        /* Memotong bagian gambar yang berlebih */
-    position: relative;      /* Menjaga posisi elemen di dalamnya */
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;       /* Memotong gambar secara proporsional mengisi 220px */
-    object-position: center;  /* Memfokuskan potongan gambar di tengah */
-    display: block;
+    object-fit: cover;
 }
 
 .project-content {
-    padding: 25px;
+    padding: 20px;
 }
 
 .project-content h3 {
+    font-size: 18px;
     margin-bottom: 10px;
+    color: #222;
 }
 
 .project-content p {
-    color: #666;
     font-size: 14px;
-    margin-bottom: 20px;
+    color: #666;
+    margin-bottom: 15px;
 }
 
 .project-tech {
@@ -344,219 +375,141 @@ section {
 }
 
 .project-tech span {
-    padding: 5px 10px;
-
-    background-color: #f1f1f1;
-
-    border-radius: 4px;
-
     font-size: 12px;
+    background-color: #eef5ff;
+    color: #007bff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 500;
 }
 
-
-/* =========================
-   CONTACT
-========================= */
-
-/* .contact {
-    text-align: center;
-}
-
+/* ==========================================================================
+   8. CONTACT & FOOTER
+   ========================================================================== */
 .contact-content {
+    text-align: center;
     max-width: 600px;
     margin: 0 auto;
 }
 
-.contact-content p {
-    color: #666;
-    margin-bottom: 25px;
-} */
-/* ==================== CONTACT ==================== */
-.contact {
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.contact-content {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
 .contact-text {
-  color: #555555;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 25px;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 25px;
 }
 
-/* Tombol Utama Kirim Email */
-.contact-content .btn-primary {
-  display: inline-block;
-  background-color: #222222;
-  color: #ffffff;
-  padding: 12px 28px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 30px;
-  transition: background-color 0.2s ease;
-}
-
-.contact-content .btn-primary:hover {
-  background-color: #333333;
-}
-
-/* Container Ikon Sosial Media */
 .social-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
-/* Tombol Bulat Sosial Media */
 .social-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background-color: #f4f4f4;
-  color: #222222;
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 18px;
+    transition: all 0.3s ease;
 }
 
 .social-btn:hover {
-  background-color: #222222;
-  color: #ffffff;
-  transform: translateY(-3px);
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+    transform: translateY(-3px);
 }
-
-/* =========================
-   FOOTER
-========================= */
 
 .footer {
-    padding: 30px;
-
     text-align: center;
-
-    background-color: #222;
-    color: #aaa;
-
-    font-size: 13px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-top: 1px solid #eeeeee;
+    font-size: 14px;
+    color: #777777;
+    margin-top: 40px;
 }
 
-
-/* =========================
-   RESPONSIVE
-========================= */
-
+/* ==========================================================================
+   9. RESPONSIVE (MOBILE)
+   ========================================================================== */
 @media (max-width: 768px) {
-
-    .navbar {
-        padding: 15px 20px;
-    }
-
-    .nav-menu {
-        gap: 20px;
-    }
-
-    .nav-menu a {
-        font-size: 13px;
-    }
-
-    section {
-        padding: 80px 10%;
-    }
-
-
-    /* HERO MOBILE */
-
-    .hero {
-        min-height: calc(100vh - 70px);
-
-        padding: 70px 10%;
-
+    .hamburger {
+        display: flex;             /* Tampilkan hamburger di HP */
+        align-items: center;
         justify-content: center;
+        background: none;
+        border: none;
+        font-size: 22px;
+        color: #333;
+        cursor: pointer;
+        line-height: 1;            /* Mencegah spasi vertikal tambahan */
+    }
 
+    /* Dropdown Menu muncul di bawah kotak navbar */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + 10px);    /* Posisikan tepat di bawah kotak navbar */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         text-align: center;
+        gap: 15px;
+    }
 
-        background-position: center 80%;
+    .nav-links.active {
+        display: flex;
+    }
+    .hero {
+        /* Hapus background gambar di Mobile & ganti warna solid */
+        background-image: none !important;
+        background-color: #fcfcfc;
+        align-items: center;
+        text-align: center;
+        padding-top: 130px;
+        min-height: auto;
+    }
 
-        background-image:
-            linear-gradient(
-                /* rgba(255, 255, 255, 0.72),
-                rgba(255, 255, 255, 0.72) */
-            ),
-            url("../images/bag.jpg");
+    /* Tampilkan Foto Profil Bulat di Mobile */
+    .profile-avatar {
+        display: block !important;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid #ffffff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+        margin: 0 auto 20px auto;
+    }
+
+    .profile-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .hero-content {
-        width: 100%;
-        max-width: 600px;
+        max-width: 100%;
     }
 
-    .hero h1 {
-        font-size: 40px;
-    }
-
-    .hero h2 {
-        font-size: 20px;
-    }
-
-    .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
+    /* Susun tombol menjadi vertikal (ke bawah) & buat selebar konten */
     .hero-buttons {
-        justify-content: center;
-    }
-
-
-    /* SKILLS */
-
-    .skills-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-
-    /* PROJECTS */
-
-    .projects-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media (max-width: 480px) {
-
-    .nav-menu {
+        flex-direction: column;
+        width: 100%;
         gap: 10px;
     }
 
-    .nav-menu a {
-        font-size: 11px;
-    }
-
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .skills-container {
-        grid-template-columns: 1fr;
+    .btn {
+        width: 100%; /* Memenuhi lebar kontainer di HP */
     }
 }
