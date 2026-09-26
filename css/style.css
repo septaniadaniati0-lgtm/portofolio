@@ -1,4 +1,14 @@
 /* ==========================================================================
+   COLOR PALETTE VARIABLES (PINKISH THEME)
+   ========================================================================== */
+:root {
+    --primary-pink: #d67ba8;
+    --primary-pink-hover: #c06192;
+    --light-pink-bg: #fdf2f7;
+    --light-pink-border: #f8dceb;
+}
+
+/* ==========================================================================
    1. RESET & BASE STYLES
    ========================================================================== */
 * {
@@ -42,7 +52,7 @@ section {
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #007bff;
+    color: var(--primary-pink); /* Mengubah dari #007bff ke Pink */
     font-weight: 600;
 }
 
@@ -142,10 +152,10 @@ section {
     background-image:
         linear-gradient(
             to right,
-            rgba(255, 255, 255, 0.95) 0%,
-            rgba(255, 255, 255, 0.85) 35%,
-            rgba(255, 255, 255, 0.2) 65%,
-            rgba(255, 255, 255, 0) 100%
+            rgba(253, 242, 247, 0.95) 0%,
+            rgba(253, 242, 247, 0.8) 35%,
+            rgba(253, 242, 247, 0.2) 65%,
+            rgba(253, 242, 247, 0) 100%
         ),
         url("../images/bag.jpg");
     background-size: cover;
@@ -163,8 +173,9 @@ section {
 
 .hero .greeting {
     font-size: 18px;
-    color: #666;
+    color: var(--primary-pink); /* Aksen pink untuk greeting */
     margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .hero h1 {
@@ -210,42 +221,184 @@ section {
 
 /* Mengubah warna tombol utama dari biru ke hitam */
 .btn-primary {
-    background-color: #111111;
+    background-color: var(--primary-pink);
     color: #ffffff !important;
-    border: 1px solid #111111;
+    border: 1px solid var(--primary-pink);
 }
 
 .btn-primary:hover {
-    background-color: #333333;
-    border-color: #333333;
+    transform: translateY(-2px); /* Efek terangkat sedikit saat disorot */
+    background-color: var(--primary-pink-hover);
+    border-color: var(--primary-pink-hover);
 }
 
 /* Mengubah warna tombol sekunder ke tema hitam */
 .btn-secondary {
     background-color: transparent;
-    color: #111111 !important;
-    border: 1px solid #111111;
+    color: var(--primary-pink) !important;
+    border: 1px solid var(--primary-pink);
 }
 
 .btn-secondary:hover {
-    background-color: #111111;
-    color: #ffffff !important;
+    transform: translateY(-2px); /* Efek terangkat sedikit saat disorot */
+    background-color: var(--light-pink-bg);
+    color: var(--primary-pink-hover) !important;
 }
 
 /* ==========================================================================
-   5. ABOUT
+   ABOUT SECTION (TANPA BACKGROUND / CENTER ALIGNED)
    ========================================================================== */
-.about-content {
+.about {
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
+    padding: 80px 20px;
+}
+
+.about-content {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center; /* Meratakan seluruh teks dan elemen ke tengah */
 }
 
 .about-text p {
     font-size: 16px;
-    color: #555;
+    color: #555555;
     margin-bottom: 15px;
     line-height: 1.8;
+}
+
+/* Box Info Highlight (Rata Tengah) */
+.about-info {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 25px 0;
+    padding: 20px 30px;
+    background-color: #fdf2f7;
+    border-left: 4px solid #d67ba8;
+    border-radius: 8px;
+    text-align: left; /* Teks di dalam box tetap rata kiri agar rapi */
+}
+
+.info-item {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.info-item span {
+    font-weight: 700;
+    color: #2b2b2b;
+    min-width: 70px;
+}
+
+.info-item p {
+    margin: 0;
+    color: #d67ba8;
+    font-weight: 600;
+}
+
+/* Container pembungkus tombol agar berada tepat di tengah */
+.about-buttons {
+    display: flex;
+    justify-content: center; /* Mengetengahkan tombol secara horizontal */
+    align-items: center;
+    width: 100%;             /* Memastikan container mengambil lebar penuh */
+    margin-top: 25px;
+}
+
+/* Mengatur tombol View CV */
+.about-buttons .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    
+    width: auto !important;   /* Menimpa lebar 100% agar tombol mengecil sesuai teks */
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5%;
+    margin: 0 auto;           /* Memastikan margin kiri dan kanan seimbang */
+}
+
+/* Efek saat tombol di-hover cursor */
+.about-buttons .btn:hover {
+    transform: translateY(-2px); /* Efek terangkat sedikit saat disorot */
+    box-shadow: 0 5px 15px rgba(214, 123, 168, 0.3);
+}
+
+/* ==========================================================================
+   RESPONSIVE MOBILE (HP)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .about {
+        padding: 50px 20px;
+    }
+
+    .about-info {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .about-buttons {
+        flex-direction: column;
+    }
+
+    .about-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE MOBILE (HP)
+   ========================================================================== */
+@media (max-width: 991px) {
+    .about {
+        background-image: none; /* Hilangkan background di HP agar teks tetap jelas */
+        align-items: center;
+        padding: 50px 20px;
+    }
+
+    .about-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .about-info {
+        text-align: left;
+    }
+
+    .about-buttons {
+        justify-content: center;
+    }
+}
+/* ==========================================================================
+   RESPONSIVE MOBILE (HP)
+   ========================================================================== */
+@media (max-width: 991px) {
+    .about-container {
+        flex-direction: column; /* Ubah ke susunan vertikal saat di HP */
+        text-align: center;
+        gap: 25px;
+    }
+
+    .about-image img {
+        max-width: 280px; /* Gambar mengecil otomatis di HP */
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    .about-info {
+        text-align: left;
+    }
+
+    .about-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
 /* ==========================================================================
